@@ -1,0 +1,9 @@
+// thoughts behind start button]
+
+    you hit the start button, 
+    display playerOne's name + "'s turn"
+        after a button has been clicked
+    display playerTwo's name + "'s turn"
+        and so on an so forth
+        until someone wins, 
+        then display whoever won
