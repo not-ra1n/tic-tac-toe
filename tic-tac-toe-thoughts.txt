@@ -7,3 +7,9 @@
         and so on an so forth
         until someone wins, 
         then display whoever won
+
+
+// restart button logic figure out 4/2/24
+
+/ look at line 293 to fix it, or look at just the
+restart button click event

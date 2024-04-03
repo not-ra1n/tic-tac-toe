@@ -47,6 +47,11 @@ table {
 	border-spacing: 0;
 }
 
+body {
+    display: grid;
+    justify-content: center;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
