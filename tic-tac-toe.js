@@ -10,26 +10,6 @@ function gameBoard () {
     return game;
 }
 
-// function createPlayer (playerName, marker) {
-//     return {playerName, marker};
-// }
-
-
-// const playerOne = createPlayer("Josh", "X");
-// const playerTwo = createPlayer("Scarlet", "O");
-
-// console.log({
-//     PlayerName: playerOne.playerName,
-//     Marker: playerOne.marker
-// });
-
-// console.log({
-//     PlayerName: playerTwo.playerName,
-//     Marker: playerTwo.marker
-// });
-
-console.log(gameBoard())
-
 function gameController (
     playerOneName = "Player One",
     playerTwoName = "Player Two"
@@ -46,6 +26,29 @@ function gameController (
             marker: "O"
         }
     ];
+
+    let playerOneButton = document.querySelector("#playerOneButton");
+    let playerTwoButton = document.querySelector("#playerTwoButton");
+    let playerOneInput = document.querySelector("#playerOneName");
+    let playerTwoInput = document.querySelector("#playerTwoName");
+
+    playerOneButton.addEventListener("click", function() {
+        let playerOneName = playerOneInput.value;
+        if (playerOneName == "") {
+            playerOneName = "Player One"
+        }
+        players[0].name = playerOneName;
+    });
+
+    playerTwoButton.addEventListener("click", function() {
+        let playerTwoName = playerTwoInput.value;
+        if (playerTwoName == "") {
+            playerTwoName = "Player Two"
+        }
+        players[1].name = playerTwoName;
+    });
+
+    
 
 
     let activePlayer = players[0];
@@ -72,49 +75,9 @@ function gameController (
         return tie = 0;
     }
 
-// while (win === 0 || tie === 0) {
-// }
 
-console.log(`${getActivePlayer().name}'s turn.`);
+const board = gameBoard();
 
-
-
-
-    const board = gameBoard();
-
-    console.log(board)
-
-    // console.log(playerOne.playerName, "goes first.")
-    
-    // console.log(playerOne.marker)
-
-    console.log(rowThree[0])
-
-
-    // rowThree.splice(0, 1, playerOne.marker)
-
-    // rowThree.splice(1, 1, playerOne.marker)
-
-    // rowThree.splice(2, 1, playerTwo.marker)
-
-    // rowOne.splice(0, 1, playerOne.marker)
-
-    // rowOne.splice(1, 1, playerOne.marker)
-
-    // rowOne.splice(2, 1, playerTwo.marker) 
-
-    // rowTwo.splice(0, 1, playerTwo.marker)
-
-    // rowTwo.splice(1, 1, playerTwo.marker)
-
-    // rowTwo.splice(2, 1, playerOne.marker) 
-
-
-    console.log(rowThree[0])
-
-    console.log(rowTwo)
-
-    console.log(board)
 
 function winTieLogic () {
     if (rowThree[0] === "X" && rowThree[1] === "X" && rowThree[2] === "X") {
@@ -168,12 +131,6 @@ function winTieLogic () {
     }
     if (rowTwo[0] === "O" && rowTwo[1] === "O" && rowTwo[2] === "O") {
         console.log(`${getActivePlayer().name} wins!`)
-        console.log(rowTwo)
-        console.log(rowOne)
-        console.log(rowThree)
-        console.log(rowTwo[0])
-        console.log(rowTwo[1])
-        console.log(rowTwo[2])
         win++;
         console.log(win)
     }
@@ -246,22 +203,7 @@ function displayController () {
     const {getActivePlayer, switchPlayerTurn, winTieLogic, getWins, getTies
     , resetWins, resetTies} = gameController();
 
-    console.log(getWins())
-
-    console.log(getTies())
-
-    console.log(getActivePlayer())
-
-    console.log(winTieLogic)
-
-    console.log(switchPlayerTurn)
-
-    console.log(board);
-
-    console.log(rowOne[0]);
-
     box1.textContent = rowOne[0] 
-    console.log(box1.textContent)
     box2.textContent = rowOne[1] 
     box3.textContent = rowOne[2] 
     box4.textContent = rowTwo[0] 
@@ -312,13 +254,19 @@ function displayController () {
 
     });
 
+
+
+
     function playerDisplayFunction () {
-        if (getWins() !== 0 || getTies() !== 0) {
+        if (getWins() !== 0) {
             playerDisplay.textContent = (`${getActivePlayer().name} won!`)
+        } else if (getTies() !== 0) {
+            playerDisplay.textContent = "It's a tie!"
         } else {
-            playerDisplay.textContent = (`${getActivePlayer().name}'s turn`)
+            playerDisplay.textContent = (`${getActivePlayer().name}'s turn!`)
         }
     }
+
     box1.addEventListener("click", function() {
         if (box1.textContent === "" && getWins() === 0 && getTies() === 0
         && startButtonClicked !== 0) {

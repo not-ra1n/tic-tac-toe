@@ -7,10 +7,34 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="title">Tic-Tac-Toe</div>
+    <div id="ticTacToeHeader">Tic-Tac-Toe</div>
     <div id="playerDisplay"></div>
-    <button id="start-button">Start</button>
-    <button id="restart-button">Restart</button>
+
+
+<div id="sidebarOptions">
+    <!-- <div id="startRestartContainer"> -->
+        <button id="start-button">Start</button>
+        <button id="restart-button">Restart</button>
+    <!-- </div> -->
+
+
+    <div id="playerOneContainer">
+        <label for="playerOneName" id="playerOneLabel" class="playerOneName">Player One:</label>
+        <div id="inputWrap">
+            <input type="text" class="playerOneName" id="playerOneName"  name="playerOneName">
+            <button id="playerOneButton">&#x2713;</button>
+        </div>
+    </div>
+
+    <div id="playerTwoContainer">
+        <label for="playerTwoName" id="playerTwoLabel" class="playerTwoName">Player Two:</label>
+        
+        <div id="inputWrap">
+            <input type="text" class="playerTwoName" id="playerTwoName" name="playerTwoName">
+            <button id="playerTwoButton">&#x2713;</button>
+        </div>
+    </div>
+</div>
 
     
 
